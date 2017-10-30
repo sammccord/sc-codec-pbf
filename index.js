@@ -41,7 +41,7 @@ scCodecPbf.prototype.encode = function(object) {
 
 scCodecPbf.prototype.decode = function(str) {
   if (typeof str === 'string') {
-    if (str.charAt(0) === '#') return str
+    if (str.charAt(0) === '#' || str.charAt(0) !== '{') return str
     else return JSON.parse(str)
   } else {
     var buf = new Pbf(str)

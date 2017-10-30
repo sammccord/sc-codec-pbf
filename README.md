@@ -4,7 +4,7 @@ This codec helps reduce bandwidth usage and is ideal for games and other high-th
 
 This module is designed to be hooked up on both the client and server.
 
-This codec also assumes you're using one proto message type per SocketCluster client/worker instance for maximum efficiency, and that you're only sending objects that can be encoded with that message.
+This codec also assumes you're using one proto message type per SocketCluster client/worker instance for maximum efficiency, and that you're either sending objects that can be encoded with that message, or strings.
 
 To install, use:
 
