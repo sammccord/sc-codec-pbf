@@ -4,7 +4,7 @@ This codec helps reduce bandwidth usage and is ideal for games and other high-th
 
 This module is designed to be hooked up on both the client and server.
 
-This codec also assumes you're using one proto message type per SocketCluster client/worker instance for maximum efficiency.
+This codec also assumes you're using one proto message type per SocketCluster client/worker instance for maximum efficiency, and that you're only sending objects that can be encoded with that message.
 
 To install, use:
 
@@ -56,9 +56,24 @@ var socket = socketCluster.connect({
   // ...
   codecEngine: new scCodecPbf(Example)
 });
+
+socket.emit('playerUpdate', {
+  x: 500,
+  y: 204,
+  playerID: 'sdshu8ijodln',
+  playerState: 0
+})
 ```
 
 Note that the codec used on the client and on the server always need to match.
+
+## Early Benchmarks
+
+This hasn't been extensively battle tested yet, but early comparisons show a reduction of around half from `sc-codec-min-bin`. With the example above, Chrome WS frame inspector showed:
+
+- **JSON Stringify/Parse**: 87 bytes
+- **sc-codec-min-bin**: 54 bytes
+- **sc-codec-pbf**: 27 bytes
 
 ---
 
