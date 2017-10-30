@@ -30,7 +30,7 @@ function scCodecPbf(msg) {
 
 scCodecPbf.prototype.encode = function(object) {
   if (object) {
-    if (object.rid !== null || object.cid !== null) return JSON.stringify(object)
+    if (object.rid != null || object.cid != null) return JSON.stringify(object)
     else if (typeof object === 'string') return object
     else {
       var buf = new Pbf()
