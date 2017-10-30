@@ -1,6 +1,6 @@
 {
   "name": "sc-codec-pbf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Minimal binary codec for SocketCluster based on pbf",
   "main": "index.js",
   "repository": "https://github.com/sammccord/sc-codec-pbf.git",
